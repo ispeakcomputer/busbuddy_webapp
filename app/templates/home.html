@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Busbuddy</h2>
+    <div id = "busform">
+    <form action="/post" method= "post" >
+      <label for="">Route :</label>
+
+      <input type="text" name="bus" value=""><br>
+      <label for="">Bus ID:</label>
+
+      <input type="text" name="stop" value="">
+      <input type="submit" name="Find Arrivals" value="getarrivals">
+    </form>
+  </div>
+  </div>
+{% endblock %}
