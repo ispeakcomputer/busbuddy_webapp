@@ -5,7 +5,9 @@
     <div id = "busform">
     <h4> Times for bus {{ bus }} at stop {{ stop }}
     <ul>
-      <li></li>
+      {% for bustimes in list%}
+      <li>Arriving at {{ bustime }}</li>
+       {% endfor %}
     </ul>
   </div>
   </div>
