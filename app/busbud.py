@@ -11,13 +11,13 @@ import requests
 from mylogins import *
 import time
 
-count = 0
 class Tripsdata:
-    # def __init__(self):
+    def __init__(self):
+         self.count = 0
     def pull(self):
         '''Pull rtd-denver GTFS data and the assign bindings using gtfs_realtime_pb2'''
         global count
-        while count == count:
+        while self.count == self.count:
             tufeed = gtfs_realtime_pb2.FeedMessage()
             print "Pulling the feed"
             response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
@@ -93,4 +93,6 @@ def main():
 
     myconvertedtimes = convertedtimes.converter(listoftimes)
     print "converted time in list of times:", myconvertedtimes
+
+# Fire this baby off right here
 main()
