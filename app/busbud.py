@@ -61,17 +61,36 @@ ournextarrival = Nextarrival()
 
 class Converttime:
     def converter(self, ournexttime):
-        self.times = []
-        '''Here we convert the POSIX time from our GTFS feed to a date and time that we can read'''
+        '''Here we convert the POSIX time from our GTFS feed to a date and time that we can read
+        We try and detect a list as well as a single var so we can use many different inputs'''
+        self.times = ournexttime
         convertedlist = []
-        for entry in self.times:
-            convertedlist = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(entry))
-        return convertedtime
+        if type(self.times) is list:
+            for entry in self.times:
+                convertedlist = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(entry))
+            return convertedlist
+        else:
+            convertedlist = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(ournexttime))
+            return convertedlist
+
 convertedtimes = Converttime()
 
 def main():
+    # Pull the protocol buffer data and bindings
     feed = data.pull()
-    listoftimes = arrival.times(feed)
-    mynextbus = ournextarrival.mintime(arrival.list.times)
-    myconvertedtimes = convertedtime.converter(listoftimes)
+
+    # Feed this in to pull out our bus and stop times.This should be a list
+    listoftimes = arrival.list(feed)
+    for entry in listoftimes:
+        print "looping through in main", entry
+
+    # feed list in and find the smallest one
+    mynextbus = ournextarrival.mintime(listoftimes)
+    print "min time of that list", mynextbus
+
+    mynextbusconverted = convertedtimes.converter(mynextbus)
+    print "My next bus converted", mynextbusconverted
+
+    myconvertedtimes = convertedtimes.converter(listoftimes)
+    print "converted time in list of times:", myconvertedtimes
 main()
