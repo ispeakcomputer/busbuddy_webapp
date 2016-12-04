@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from busbud import *
 
 app = Flask(__name__)
 
@@ -14,9 +15,14 @@ def about():
 def post():
     bus = request.form['bus']
     stop = request.form['stop']
-    return render_template('arrivals.html', bus=bus, stop=stop)
-    # return "bus" + str(bus) + ' Route' + str(route)
-    # return redirect('/')
+    print "bus ", bus
+    print "stop", stop
+    thelist = data.pull()
+    listoftimes = arrival.list(thelist, bus, stop)
+    list = convertedtimes.converter(listoftimes)
+    # print type(myconvertedtimes)
+
+    return render_template('arrivals.html', list=list, bus=bus, stop=stop)
 
   # return render_template('home.html')
 
