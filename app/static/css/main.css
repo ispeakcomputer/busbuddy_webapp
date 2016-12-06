@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
+  background-color: ##FFFFEA;
 }
 
 /*
@@ -11,15 +12,15 @@ body {
 
 header {
   background-color:  #99ddff;
-  height: 35px;
+  height: 65px;
   width: 100%;
-  opacity: .9;
+  /*opacity: .9;*/
   margin-bottom: 10px;
 }
 
 header h1.logo {
   margin: 0;
-  font-size: 1.7em;
+  font-size: 25px;
   color: #fff;
   text-transform: uppercase;
   float: left;
@@ -95,5 +96,8 @@ h3 {
 .container p{
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+}
+.warning{
   text-align: center;
 }

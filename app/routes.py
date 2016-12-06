@@ -16,7 +16,11 @@ def post():
     bus = request.form['bus']
     stop = request.form['stop']
     print "bus ", bus
+    if len(bus) > 6:
+        return render_template('warning.html')
     print "stop", stop
+    if len(stop) > 6:
+        return render_template('warning.html')
     thelist = data.pull()
     listoftimes = arrival.list(thelist, bus, stop)
     list = convertedtimes.converter(listoftimes)
