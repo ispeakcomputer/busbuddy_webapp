@@ -90,13 +90,3 @@ class Converttime:
             return convertedlist
 
 convertedtimes = Converttime()
-
-# def main():
-#     # Pull the protocol buffer data and bindings
-#     # mynextbus = ournextarrival.mintime(listoftimes)
-#     # mynextbusconverted = convertedtimes.converter(mynextbus)
-#     # testconverted = convertedtimes.converter(mynextbus)
-#
-#     # myconvertedtimes = convertedtimes.converter(listoftimes)
-# # Fire this baby off right here
-# main()
