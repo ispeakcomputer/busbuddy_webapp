@@ -1,0 +1,10 @@
+click==6.6
+Flask==0.11.1
+gtfs-realtime-bindings==0.0.4
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+protobuf==3.1.0.post1
+requests==2.12.3
+six==1.10.0
+Werkzeug==0.11.11
