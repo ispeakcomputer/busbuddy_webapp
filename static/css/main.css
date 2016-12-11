@@ -11,11 +11,21 @@ body {
  */
 
 header {
-  background-color:  #99ddff;
   height: 65px;
-  width: 100%;
+  width: 400px;
   /*opacity: .9;*/
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  /*padding: 5px;*/
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  background: #3366FF; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #3366FF, #00FFFF); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #3366FF, #00FFFF); /* Standard syntax */
 }
 
 header h1.logo {
@@ -24,16 +34,13 @@ header h1.logo {
   color: #fff;
   text-transform: uppercase;
   float: left;
+  margin-left: 10px;
 }
 
 header h1.logo:hover {
   color: #fff;
   text-decoration: none;
 }
-
-/*
- * Center the body content
- */
 
 .container {
   width: 400px;
@@ -77,8 +84,11 @@ h3 {
   display: inline;
 }
 
-.menu li + li {
-  margin-left: 35px;
+.menu li {
+  margin-left: 20px;
+  margin-left: 10px;
+  padding: 5px;
+  /*background-color: red;*/
 }
 
 .menu a {
@@ -101,3 +111,6 @@ h3 {
 .warning{
   text-align: center;
 }
+ nav{
+   width: 400px;
+ }

@@ -3,24 +3,25 @@
   <head>
     <title>BusBuddy</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
     <div class="container">
     <!-- <h1 class="logo">BusBuddy</h1> -->
-    <strong><nav>
-      <ul class="menu">
-        <li style="color:white;"><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-      </ul>
-    </nav></strong>
   </div>
-
-  </head>
   <body>
 
     <header>
       <div class="container">
         <h1 class="logo">arrive on time</h1>
       </div>
+      <nav>
+        <strong>
+          <ul class="menu">
+            <li style="color:white;"><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+        </strong>
+      </nav>
     </header>
 
     <div class="container">
