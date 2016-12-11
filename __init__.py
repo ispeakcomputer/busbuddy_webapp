@@ -15,20 +15,14 @@ def about():
 def post():
     bus = request.form['bus']
     stop = request.form['stop']
-    print "bus ", bus
-    if len(bus) > 6:
-        return render_template('warning.html')
-    print "stop", stop
-    if len(stop) > 6:
-        return render_template('warning.html')
     thelist = data.pull()
     listoftimes = arrival.list(thelist, bus, stop)
     list = convertedtimes.converter(listoftimes)
-    # print type(myconvertedtimes)
-
-    return render_template('arrivals.html', list=list, bus=bus, stop=stop)
-
-  # return render_template('home.html')
+    checkinput = Checkinput()
+    if checkinput.checker(bus, stop) == False:
+        return render_template('warning.html')
+    else:
+        return render_template('arrivals.html', list=list, bus=bus, stop=stop)
 
 if __name__ == '__main__':
   app.run(debug=True)

@@ -89,4 +89,20 @@ class Converttime:
             print "converting single instead"
             return convertedlist
 
+class Checkinput:
+    def __init__(self):
+         self.digits = 6
+    def checker(self, bus, stop):
+        ''' Check to make sure input isn't over 6 digits '''
+        if len(bus) > self.digits:
+            return False
+        else:
+            pass
+
+        if len(stop) > self.digits:
+            return False
+        else:
+            pass
+        return True
+
 convertedtimes = Converttime()
