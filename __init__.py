@@ -19,6 +19,7 @@ def post():
     listoftimes = arrival.list(thelist, bus, stop)
     list = convertedtimes.converter(listoftimes)
     checkinput = Checkinput()
+
     if checkinput.checker(bus, stop) == False:
         return render_template('warning.html')
     else:

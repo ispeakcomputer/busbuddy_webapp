@@ -114,3 +114,18 @@ h3 {
  nav{
    width: 400px;
  }
+
+ @media only screen and (max-device-width: 400px) {
+   nav{
+     width: 90%;
+     margin: auto;
+   }
+
+   .container {
+     width: 90%;
+     margin: auto;
+   }
+   header {
+     width: 90%;
+     margin: auto;
+ 	}
