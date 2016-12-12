@@ -132,7 +132,7 @@ h3 {
    padding-bottom: 20px;
  }
 
- @media only screen and (max-device-width: 400px) {
+ @media only screen and (max-device-width: 645px) {
    nav{
      width: 90%;
      margin-left: auto;
@@ -158,8 +158,11 @@ h3 {
     font-size: 2em;
   }
   header li{
-    font-size: 2em;
+    font-size: 1.4em;
   }
+.jumbo h2{
+  font-size: 3.7em;
+}
 .myform{
   margin-left: auto;
   margin-right: auto;
