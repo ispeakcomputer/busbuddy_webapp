@@ -132,14 +132,14 @@ h3 {
    padding-bottom: 20px;
  }
 
- /*@media only screen and (max-device-width: 400px) {
+ @media only screen and (max-device-width: 400px) {
    nav{
      width: 90%;
      margin-left: auto;
      margin-right: auto;
    }
 
-   .container {
+   /*.container {
      width: 90%;
      margin-left: 5%;
      margin-right: 5%;
@@ -162,5 +162,5 @@ h3 {
 }
 #busform{
   padding:20px;
-}
 }*/
+}
