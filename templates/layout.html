@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>BusBuddy</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     <div class="container">
@@ -17,7 +17,7 @@
       <nav>
         <strong>
           <ul class="menu">
-            <li style="color:white;"><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
           </ul>
         </strong>

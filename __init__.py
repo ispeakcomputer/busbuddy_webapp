@@ -15,14 +15,16 @@ def about():
 def post():
     bus = request.form['bus']
     stop = request.form['stop']
-    thelist = data.pull()
-    listoftimes = arrival.list(thelist, bus, stop)
-    list = convertedtimes.converter(listoftimes)
     checkinput = Checkinput()
 
     if checkinput.checker(bus, stop) == False:
+        '''Check to see how many digits user is entering'''
         return render_template('warning.html')
     else:
+        '''Pull this data and start loading into the page'''
+        thelist = data.pull()
+        listoftimes = arrival.list(thelist, bus, stop)
+        list = convertedtimes.converter(listoftimes)
         return render_template('arrivals.html', list=list, bus=bus, stop=stop)
 
 if __name__ == '__main__':
