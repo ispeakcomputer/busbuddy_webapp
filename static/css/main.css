@@ -139,17 +139,17 @@ h3 {
      margin-right: auto;
    }
 
-   /*.container {
+   .container {
      width: 90%;
-     margin-left: 5%;
-     margin-right: 5%;
      margin-left: auto;
      margin-right: auto;
    }
    header {
      width: 90%;
-     margin-left: 5%;
-     margin-right: 5%;
+     margin-left: auto;
+     margin-right: auto;
+     /*margin-left: 5%;*/
+     /*margin-right: 5%;*/
      padding-bottom: 5px;
      margin-bottom: 10px;
      margin-top: 5px;
@@ -160,7 +160,7 @@ h3 {
   background-color: red;
   padding-bottom: 10px;
 }
-#busform{
+/*#busform{
   padding:20px;
 }*/
 }
