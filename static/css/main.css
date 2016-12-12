@@ -126,6 +126,12 @@ h3 {
     margin-right: auto;
     /*padding: 2px;*/
  }
+ .myform{
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 20px;
+   width: 300px;
+ }
 
  @media only screen and (max-device-width: 400px) {
    nav{
@@ -149,6 +155,7 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   background-color: red;
+  padding-bottom: 10px;
 
 }
 #busform{
