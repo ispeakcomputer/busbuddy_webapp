@@ -21,21 +21,21 @@ class Tripsdata:
             response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
             #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
             tufeed.ParseFromString(response.content)
-            print "tufeed loaded"
+            # print "tufeed loaded"
 
             # make sure we loaded data from denver RTD API
             if tufeed == False:
-                print "nothing loaded from Denver RTD retrying in 10 seconds"
+                # print "nothing loaded from Denver RTD retrying in 10 seconds"
                 time.sleep(10)
 
 
             else:
                 print "Feed is loaded now"
                 self.count += 1
-                print self.count
+                # print self.count
                 return tufeed
-                print "Pulled the feed %s time and stored in data.datastore" %count
-                time.sleep(60)
+                # print "Pulled the feed %s time and stored in data.datastore" %count
+                # time.sleep(60)
                 # time.sleep(60)
                 # pass
 data = Tripsdata()
@@ -49,11 +49,11 @@ class Findarrival:
         # self.stop = stop
         '''Now we loop through and find our bus and the stop that we need'''
         for entity in tufeed.entity:
-            print entity
-            print "stop inside func", stop
+            # print entity
+            # print "stop inside func", stop
             #for mytrip in entity.trip_update.stop_time_update:
             if entity.trip_update.trip.route_id == bus:
-                print "bus matches"
+                # print "bus matches"
                 for mystop in entity.trip_update.stop_time_update:
                     if mystop.stop_id == stop:
                         print "stop matches"
@@ -86,7 +86,7 @@ class Converttime:
             return convertedlist
         else:
             convertedlist = time.strftime('%I:%M %p (%Y-%m-%d)', time.localtime(ournexttime))
-            print "converting single instead"
+            # print "converting single instead"
             return convertedlist
 
 class Checkinput:
