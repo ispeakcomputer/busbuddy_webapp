@@ -2,6 +2,7 @@ from google.transit import gtfs_realtime_pb2
 import requests
 from mylogins import *
 import time
+from models import Mymodel
 
 class Tripsdata:
     def __init__(self):
@@ -36,6 +37,8 @@ data = Tripsdata()
 class Feedstore:
     def get_packaged_data(self, tufeed):
         '''Parse through RTD data and start loading it into database'''
+        model.newtable()
+
         for entity in tufeed.entity:
             for mystop in entity.trip_update.stop_time_update:
 
@@ -54,4 +57,5 @@ feed = Feedstore()
 if __name__ == '__main__':
     ourdata = data.pull()
     db_data = feed.get_packaged_data(ourdata)
+
     # print(db_data)
