@@ -35,55 +35,23 @@ data = Tripsdata()
 
 class Feedstore:
     def get_packaged_data(self, tufeed):
-        self.times = []
-        # print "bus inside func", bus
-        # self.bus = bus
-        # self.stop = stop
-        '''Now we loop through and find our bus and the stop that we need'''
+        '''Parse through RTD data and start loading it into database'''
         for entity in tufeed.entity:
-            # print entity
-            # print "stop inside func", stop
-            #for mytrip in entity.trip_update.stop_time_update:
-            for bus in entity.trip_update.trip.route_id:
-                # print "bus matches"
-                print "This is the bus right here ---->", bus
-                for mystop in entity.trip_update.stop_time_update:
-                    print "This is the stop right here ------>", mystop
-                    # if mystop.stop_id == stop:
-                        # print "stop matches"
-                        #print mystop.arrival.time
-                    self.times.append(mystop.arrival.time)
-        # for i in self.times:
-        #     print self.time['i']
+            for mystop in entity.trip_update.stop_time_update:
+
+                print entity.trip_update.trip.route_id
+                bus = entity.trip_update.trip.route_id
+
+                print mystop.stop_id
+                stop = mystop.stop_id
+
+                print mystop.arrival
+                times = mystop.arrival
+
         return self.times
 feed = Feedstore()
-
-
-class Findarrival:
-    def list(self, tufeed, bus, stop):
-        self.times = []
-        # print "bus inside func", bus
-        # self.bus = bus
-        # self.stop = stop
-        '''Now we loop through and find our bus and the stop that we need'''
-        for entity in tufeed.entity:
-            # print entity
-            # print "stop inside func", stop
-            #for mytrip in entity.trip_update.stop_time_update:
-            if entity.trip_update.trip.route_id == bus:
-                # print "bus matches"
-                for mystop in entity.trip_update.stop_time_update:
-                    if mystop.stop_id == stop:
-                        print "stop matches"
-                        #print mystop.arrival.time
-                        self.times.append(mystop.arrival.time)
-        # for i in self.times:
-        #     print self.time['i']
-        return self.times
-arrival = Findarrival()
 
 if __name__ == '__main__':
     ourdata = data.pull()
     db_data = feed.get_packaged_data(ourdata)
-    # db_data = arrival.list(data , '0', '14986')
-    print(db_data)
+    # print(db_data)
