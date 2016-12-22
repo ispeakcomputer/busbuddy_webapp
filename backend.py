@@ -1,8 +1,14 @@
+'''
+Title: Bus Buddy
+
+Description: A little app that pulls RTD data and so always knows your bus arrival time
+
+Author: Ryan Wright
+'''
 from google.transit import gtfs_realtime_pb2
 import requests
 from mylogins import *
 import time
-from models import Mymodel
 
 class Tripsdata:
     def __init__(self):
@@ -34,6 +40,7 @@ class Tripsdata:
                 # pass
 data = Tripsdata()
 
+
 class Feedstore:
     def get_packaged_data(self, tufeed):
         '''Parse through RTD data and start loading it into database'''
@@ -57,5 +64,3 @@ feed = Feedstore()
 if __name__ == '__main__':
     ourdata = data.pull()
     db_data = feed.get_packaged_data(ourdata)
-
-    # print(db_data)
