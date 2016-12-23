@@ -18,40 +18,51 @@ class Mymodel(db.Model):
     stop = db.Column(db.String(10))
     times = db.Column(db.Integer)
 
-    def __init__(self,id, bus, stop, times ):
+    def __init__(self, bus, stop, times ):
         '''now load model stuff into objects that you can play with'''
         self.bus = bus
         self.stop = stop
         self.times = times
-    #
-    # def add(self, new_entry):
-    #     ''' Load the row into the database '''
-    #
-    #     self.new_entry = new_entry
-    #     print "Going into database"
-    #     print new_entry.bus
-    #     print new_entry.stop
-    #     print new_entry.times
-    #
-    #     session.add(new_entry)
-    #     session.commit()
+
+    def __repr__(self):
+        return '<Bus %r><Stop %r><Times %r>' %self.bus %self.stop %self.times
+
+class Database_actions():
+
+    def add(self, load_bus, load_stop, load_times):
+        ''' Load the row into the database '''
+        self.bus_input = load_bus
+        self.stop_input = load_stop
+        self.times_input = load_times
+
+        new_entry = Mymodel(bus=self.bus_input, stop=self.stop_input , times=self.times_input )
+
+        print "Going into database"
+        print  self.bus_input + self.stop_input + str(self.times_input)
+
+
+        db.session.add(new_entry)
+
+    def renew(self):
+        db.drop_all()
+        db.create_all()
+
+        print "New table done"
+
+    def commit(self):
+        db.session.commit()
+
+model_thing = Database_actions()
 
     # def query(self, bus, stop):
     #     '''Filter by the requested bus and stop and order the times'''
     #     time_list = Mymodel.query.filter(bus=bus and stop=stop).all().order_by(Mymodel.times)
     #     return time_list
 
-    def __repr__(self):
-        return '<Bus %r><Stop %r><Times %r>' %self.bus %self.stop %self.times
 
-# if __name__ == "__main__":
 
-    # db.create_all()
-    #
-    # new_row = Mymodel(bus=str(i), stop='12345'+str(i) , times=str(i)+'12345' )
-    # db.session.add(new_row)
-    # db.session.commit()
 
+if __name__ == "__main__":
     app.run(debug=True)
 
 # an Engine, which the Session will use for connection
