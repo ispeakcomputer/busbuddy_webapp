@@ -27,19 +27,13 @@ class Tripsdata:
 
             # make sure we loaded data from denver RTD API
             if tufeed == False:
-                # print "nothing loaded from Denver RTD retrying in 10 seconds"
+                print "nothing loaded from Denver RTD retrying in 10 seconds"
                 time.sleep(10)
-
 
             else:
                 print "Feed is loaded now"
                 self.count += 1
-                # print self.count
                 return tufeed
-                # print "Pulled the feed %s time and stored in data.datastore" %count
-                # time.sleep(60)
-                # time.sleep(60)
-                # pass
 data = Tripsdata()
 
 
@@ -51,18 +45,17 @@ class Feedstore:
         for entity in tufeed.entity:
             for mystop in entity.trip_update.stop_time_update:
 
-                print entity.trip_update.trip.route_id
+                # print entity.trip_update.trip.route_id
                 bus = entity.trip_update.trip.route_id
 
-                print mystop.stop_id
+                # print mystop.stop_id
                 stop = mystop.stop_id
 
-                print mystop.arrival.time
+                # print mystop.arrival.time
                 times = mystop.arrival.time
 
                 model_thing.add(bus, stop, times)
 
-        print "Here we commit"
         model_thing.commit()
 
 feed = Feedstore()
