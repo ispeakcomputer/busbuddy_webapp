@@ -16,7 +16,7 @@ class Mymodel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bus = db.Column(db.String(10))
     stop = db.Column(db.String(10))
-    times = db.Column(db.Integer)
+    times = db.Column(db.String(50), )
 
     def __init__(self, bus, stop, times ):
         '''now load model stuff into objects that you can play with'''

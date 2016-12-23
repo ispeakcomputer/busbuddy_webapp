@@ -57,13 +57,13 @@ class Feedstore:
                 print mystop.stop_id
                 stop = mystop.stop_id
 
-                print mystop.arrival
-                times = mystop.arrival
+                print mystop.arrival.time
+                times = mystop.arrival.time
 
                 model_thing.add(bus, stop, times)
 
-    print "Here we commit"
-    model_thing.commit()
+        print "Here we commit"
+        model_thing.commit()
 
 feed = Feedstore()
 
