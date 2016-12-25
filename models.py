@@ -28,6 +28,23 @@ class Mymodel(db.Model):
 
 class Database_actions():
 
+    def get(self, bus, stop):
+        list = []
+        self.bus = bus
+        self.stop = stop
+        print "Database_actions.get for", self.bus
+        print "Database_actions.get for", self.stop
+        # Limiting this greatly reduces timeit
+        buses = Mymodel.query.order_by(Mymodel.times).filter_by(bus=self.bus).filter_by(stop=self.stop).all()
+        print dir(buses)
+        # this checks for length because if its off it will fail
+        for i in range(5):
+            print "print our .get i loop var", i
+            list.append(buses[i].times)
+            print buses[i].times
+
+        return list
+
     def add(self, load_bus, load_stop, load_times):
         ''' Load the row into the database '''
 
@@ -54,27 +71,5 @@ class Database_actions():
 
 model_thing = Database_actions()
 
-    # def query(self, bus, stop):
-    #     '''Filter by the requested bus and stop and order the times'''
-    #     time_list = Mymodel.query.filter(bus=bus and stop=stop).all().order_by(Mymodel.times)
-    #     return time_list
-
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
-
-# an Engine, which the Session will use for connection
-# resources
-# class Databasestuff(object):
-#     def writerow(self, bus, stop, times):
-#         some_engine = create_engine('postgressql://khole:databa5318@localhost/busdb')
-#
-#         # create a configured "Session" class
-#         Session = sessionmaker(bind=some_engine)
-#
-#         # create a Session
-#         session = Session()
-#
-#         # work with sess
