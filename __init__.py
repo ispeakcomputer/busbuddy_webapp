@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from busbud import *
-from backend import Database_actions, model_thing
+from backend import Database_actions, model_thing, data, feed
 
 app = Flask(__name__)
-app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgressql://khole:databa5318@localhost/busdb'
 
+ourdata = data.pull()
+feed.get_packaged_data(ourdata)
 
 @app.route('/')
 def home():
@@ -33,4 +34,7 @@ def post():
         return render_template('arrivals.html', list=list, bus=bus, stop=stop)
 
 if __name__ == '__main__':
-  app.run(debug=True)
+    print "Running if __name__ == '__main__ ' in __init__"
+    app.run(debug=True)
+
+  # pull data to store in our database.

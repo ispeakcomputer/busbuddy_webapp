@@ -1,9 +1,10 @@
 '''
 Backend.py
 
-This pulls our data from Denver RTD for its buses then loads the data into the database. The frontend with pull from the database
-using the API once this is all built
+This pulls our data from Denver RTD for its buses then loads the data into the database. This stores the needed data into the database
+every so often. The user is pulling database in the results that we store away here.
 
+This script calls on model.py while talking to the database
 
 '''
 from google.transit import gtfs_realtime_pb2
@@ -16,6 +17,7 @@ class Tripsdata:
     def __init__(self):
          self.count = 0
          self.datastore = self.pull
+
     def pull(self):
         '''Pull rtd-denver GTFS data and the assign bindings using gtfs_realtime_pb2'''
         while True:
@@ -23,9 +25,7 @@ class Tripsdata:
             response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
             #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
             tufeed.ParseFromString(response.content)
-            # print "tufeed loaded"
 
-            # make sure we loaded data from denver RTD API
             if tufeed == False:
                 print "nothing loaded from Denver RTD retrying in 10 seconds"
                 time.sleep(10)
@@ -36,7 +36,6 @@ class Tripsdata:
                 return tufeed
 data = Tripsdata()
 
-
 class Feedstore:
     def get_packaged_data(self, tufeed):
         '''Parse through RTD data and start loading it into database'''
@@ -44,23 +43,18 @@ class Feedstore:
 
         for entity in tufeed.entity:
             for mystop in entity.trip_update.stop_time_update:
-
-                # print entity.trip_update.trip.route_id
                 bus = entity.trip_update.trip.route_id
-
-                # print mystop.stop_id
+                print "What we are commiting to the database"
+                print bus
                 stop = mystop.stop_id
-
-                # print mystop.arrival.time
+                print stop
                 times = mystop.arrival.time
+                print times
 
                 model_thing.add(bus, stop, times)
-
         model_thing.commit()
 
 feed = Feedstore()
-
-
 
 if __name__ == '__main__':
     ourdata = data.pull()

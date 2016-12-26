@@ -36,12 +36,17 @@ class Database_actions():
         print "Database_actions.get for", self.stop
         # Limiting this greatly reduces timeit
         buses = Mymodel.query.order_by(Mymodel.times).filter_by(bus=self.bus).filter_by(stop=self.stop).all()
-        print dir(buses)
+
+        for i in buses:
+            print "This is our test", i.times
+            list.append(i.times)
+            
+
         # this checks for length because if its off it will fail
-        for i in range(5):
-            print "print our .get i loop var", i
-            list.append(buses[i].times)
-            print buses[i].times
+        # for i in range(5):
+        #     print "print our .get i loop var", i
+        #     list.append(buses[i].times)
+        #     print buses[i].times
 
         return list
 
