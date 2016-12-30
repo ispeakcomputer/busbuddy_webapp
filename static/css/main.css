@@ -1,101 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Anton|Pacifico');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'Anton', sans-serif;
   color: #444;
-  background-color: ##FFFFEA;
+  /*background-color: #93EDAA;*/
 }
 
+h2 {
+  font-size: 6em;
+  margin-top: 5px;
+  text-align: center;
+  /*letter-spacing: -2px;*/
+}
+
+.subtitle{
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  /*margin-top: 3px;*/
+  font-size: 4em;
+  /*margin-top: 5px;*/
+  text-align: center;
+  /*letter-spacing: -1px;*/
+  color: #999999;
+  margin-top: -100px;
+  margin-bottom: -30px;
+}
+hr{ border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+ }
+ 
+.nav_bar{
+  /*margin-top: 2px;*/
+  /*background-color: red;*/
+}
 /*
  * Create dark grey header with a white logo
  */
 
 header {
-  height: 65px;
-  width: 400px;
+  /*display: none;*/
+  /*height: 65px;*/
+  /*width: 400px;*/
   /*opacity: .9;*/
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  /*margin-bottom: 10px;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
   /*padding: 5px;*/
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  background: #3366FF; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #3366FF, #00FFFF); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #3366FF, #00FFFF); /* Standard syntax */
+  /*-webkit-border-radius: 6px;*/
+     /*-moz-border-radius: 6px;*/
+          /*border-radius: 6px;*/
+  /*background-color: #FFFFFF;*/
+  /*box-shadow: 0px 2px 5px #444444;*/
+  /*background: #3366FF; /* For browsers that do not support gradients */*/
+  /*background: -webkit-linear-gradient(left top, #3366FF, #00FFFF); /* For Safari 5.1 to 6.0 */*/
+  /*background: -o-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Opera 11.1 to 12.0 */*/
+  /*background: -moz-linear-gradient(bottom right, #3366FF, #00FFFF); /* For Firefox 3.6 to 15 */*/
+  /*background: linear-gradient(to bottom right, #3366FF, #00FFFF); /* Standard syntax */*/
 }
 
-header h1.logo {
+label {
+	display: block;
+	text-align: center;
+	/*margin-right: 15px;*/
+  width: 100%;
+  font-weight: bold;
+  font-size: 35px;
+  /*margin-top: 15px;*/
+	/*width: 10px;*/
+}
+
+input[type=text] {
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+/*header h1.logo {
   margin: 0;
   font-size: 25px;
-  color: #fff;
   text-transform: uppercase;
   float: left;
   margin-left: 10px;
+}*/
+
+
+.pink {
+    color: #feeef5;
+    border: solid 1px #d2729e;
+    background: #f895c2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#feb1d3), to(#f171ab));
+    background: -moz-linear-gradient(top, #feb1d3, #f171ab);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb1d3', endColorstr='#f171ab');
+}
+.button {
+
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: 1em 5em 1em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
-header h1.logo:hover {
+/*header h1.logo:hover {
   color: #fff;
   text-decoration: none;
-}
+}*/
 
 .container {
+  text-align: center;
   width: 400px;
   margin: 0 auto;
-  margin-bottom: 15px;
 }
 
 div.jumbo {
+  /*font-family: 'Anton', sans-serif;*/
+  /*margin-top: 3%;*/
   padding: 10px 0 30px 0;
-  background-color: #eeeeee;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  background-color: #FFFFFF;
+  /*-webkit-border-radius: 6px;*/
+     /*-moz-border-radius: 6px;*/
+          /*border-radius: 6px;*/
+  /*box-shadow: 1px 1px 5px #444444;*/
 }
 
-h2 {
-  font-size: 3em;
-  margin-top: 40px;
-  text-align: center;
-  letter-spacing: -2px;
-}
 
-h3 {
-  font-size: 1.7em;
-  font-weight: 100;
-  margin-top: 30px;
-  text-align: center;
-  letter-spacing: -1px;
-  color: #999999;
-}
 
-/*
- * Display navigation links inline
- */
+ ul{
+   display: block;
+   margin-left: auto;
+   margin-top: auto;
 
-.menu {
-  float: right;
-  margin-top: 8px;
-}
-
-.menu li {
+ }
+li {
   display: inline;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
 }
-
+a {
+  /*font-weight: normal;*/
+  font-size: 1.4em;
+  color: #444444;
+  text-decoration: none;
+}
+a:hover{
+  color: #f171ab;
+}
+a:visited{
+  /*color: #feb1d3*/
+}
 .menu li {
-  margin-left: 5px;
-  padding: 5px;
+  /*margin-left: 5px;*/
+  /*padding: 5px;*/
   /*background-color: red;*/
 }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-}
 
 #busform{
   margin-left: auto;
@@ -140,28 +221,27 @@ h3 {
    }
 
    .container {
+
      width: 90%;
      margin-left: auto;
      margin-right: auto;
    }
-   header {
+   /*header {
      width: 90%;
      margin-left: auto;
      margin-right: auto;
-     /*margin-left: 5%;*/
-     /*margin-right: 5%;*/
      padding-bottom: 5px;
      margin-bottom: 10px;
      margin-top: 5px;
- 	}
+ 	}*/
   header h1{
-    font-size: 2em;
+    /*font-size: 2em;*/
   }
   header li{
-    font-size: 1.4em;
+    /*font-size: 1.4em;*/
   }
 .jumbo h2{
-  font-size: 3.7em;
+  /*font-size: 3.7em;*/
 }
 .myform{
   margin-left: auto;

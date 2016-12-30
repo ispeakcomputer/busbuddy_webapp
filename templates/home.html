@@ -1,26 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="jumbo">
-    <h2>Busbuddy</h2>
-    <p>
-      For Denver RTD Transit System
-    </p>
+
+    <h2>Denver</h2>
+    <h3 class="subtitle">busbuddy</h3>
+    <hr>
+    <div class="nav_bar">
+      <nav>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+      </nav>
+    </div>
 
     <div id = "busform">
 
     <form action="/post" method= "post" >
       <!-- <div class="myform"> -->
-        <label for="">Bus ID: </label>
-        <input type="text" name="bus" value="0"><br>
+        <label for="">Bus </label>
+        <input class = "input_box" type="text" name="bus" value="0"><br>
       <!-- </div> -->
 
       <!-- <div class="myform"> -->
-       <label for="">Stop ID:</label>
-       <input type="text" name="stop" value="14986">
+       <label for="">Stop</label>
+       <input class = "input_box" type="text" name="stop" value="14986">
       <!-- </div> -->
 
       <!-- <div class="myform"> -->
-       <input type="submit" name="Find Arrivals" value="Get Arrivals">
+       <input  class="button pink" type="submit" name="Find Arrivals" value="Get Arrivals">
       <!-- </div> -->
     </form>
   </div>
