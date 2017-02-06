@@ -1,12 +1,3 @@
-'''
-Backend.py
-
-This pulls our data from Denver RTD for its buses then loads the data into the database. This stores the needed data into the database
-every so often. The user is pulling database in the results that we store away here.
-
-This script calls on model.py while talking to the database
-
-'''
 from google.transit import gtfs_realtime_pb2
 import requests
 from mylogins import *
