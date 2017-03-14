@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, redirect
 from busbud import *
 from backend import Database_actions, model_thing, data, feed
+from celery import Celery
+import time
 
 app = Flask(__name__)
+app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'
+# app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 ourdata = data.pull()
 feed.get_packaged_data(ourdata)
@@ -33,8 +40,20 @@ def post():
             print list[i]
         return render_template('arrivals.html', list=list, bus=bus, stop=stop)
 
+@celery.task
+def reload_database():
+    while True:
+        time.sleep(30)
+        ourdata = data.pull()
+        feed.get_packaged_data(ourdata)
+        print "The task ran I thinks"
+
+
+reload_database.delay()
+
 if __name__ == '__main__':
     print "Running if __name__ == '__main__ ' in __init__"
-    app.run(debug=True)
 
-  # pull data to store in our database.
+    # pull data to store in our database.
+
+    app.run(debug=True)
