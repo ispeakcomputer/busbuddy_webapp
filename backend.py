@@ -16,7 +16,7 @@ class Tripsdata:
             response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
             #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
             tufeed.ParseFromString(response.content)
-
+            print "pulling data"
             if tufeed == False:
                 print "nothing loaded from Denver RTD retrying in 10 seconds"
                 time.sleep(10)
