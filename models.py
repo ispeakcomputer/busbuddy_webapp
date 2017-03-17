@@ -7,6 +7,8 @@ from sqlalchemy.orm import sessionmaker
 import psycopg2
 
 app = Flask(__name__)
+# This will work for our production postgres db
+# app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://khole:databa5318@localhost/busdb'
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
