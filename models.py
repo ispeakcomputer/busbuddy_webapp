@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 import psycopg2
 
 app = Flask(__name__)
-app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://khole:databa5318@localhost/busdb'
+app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
 class Mymodel(db.Model):
@@ -40,7 +40,7 @@ class Database_actions():
         for i in buses:
             print "This is our test", i.times
             list.append(i.times)
-            
+
 
         # this checks for length because if its off it will fail
         # for i in range(5):
