@@ -11,8 +11,9 @@ app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
-ourdata = data.pull()
-feed.get_packaged_data(ourdata)
+# Removing the follow init db load because we run this with our task
+# ourdata = data.pull()
+# feed.get_packaged_data(ourdata)
 
 @app.route('/')
 def home():
@@ -43,10 +44,10 @@ def post():
 @celery.task
 def reload_database():
     while True:
-        time.sleep(30)
         ourdata = data.pull()
         feed.get_packaged_data(ourdata)
         print "The task ran I thinks"
+        time.sleep(60)
 
 
 reload_database.delay()
