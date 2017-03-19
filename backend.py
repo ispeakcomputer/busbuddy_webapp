@@ -13,18 +13,36 @@ class Tripsdata:
         '''Pull rtd-denver GTFS data and the assign bindings using gtfs_realtime_pb2'''
         while True:
             tufeed = gtfs_realtime_pb2.FeedMessage()
-            response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
-            #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
-            tufeed.ParseFromString(response.content)
-            print "pulling data"
-            if tufeed == False:
-                print "nothing loaded from Denver RTD retrying in 10 seconds"
-                time.sleep(10)
-
-            else:
-                print "Feed is loaded now"
-                self.count += 1
+            try:
+                print "pulling data"
+                response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
+                #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
+                tufeed.ParseFromString(response.content)
+                print "Parsing Data"
                 return tufeed
+
+            except requests.exceptions.Timeout:
+                print "RTD Denver Data Timeout Trying Again In 60 Seconds"
+                time.sleep(60)
+
+            except requests.exceptions.TooManyRedirects:
+                print "Too Many Redirects Trying Again In 60 Seconds"
+                time.sleep(60)
+
+
+            except requests.exceptions.RequestException as e:
+                print str(e) + " Trying again in 60 Seconds"
+                time.sleep(60)
+
+
+            # if tufeed == False:
+                # print "nothing loaded from Denver RTD retrying in 10 seconds"
+                # time.sleep(10)
+
+            # else:
+                # print "Feed is loaded now"
+                # self.count += 1
+                # return tufeed
 data = Tripsdata()
 
 class Feedstore:
