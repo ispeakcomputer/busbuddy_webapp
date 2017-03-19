@@ -34,6 +34,10 @@ class Tripsdata:
                 print str(e) + " Trying again in 60 Seconds"
                 time.sleep(60)
 
+            except requests.exceptions.HTTPError as err:
+                print err
+                time.sleep(60)
+
 
             # if tufeed == False:
                 # print "nothing loaded from Denver RTD retrying in 10 seconds"
