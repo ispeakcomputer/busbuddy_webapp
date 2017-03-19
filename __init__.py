@@ -11,10 +11,6 @@ app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
-# Removing the follow init db load because we run this with our task
-# ourdata = data.pull()
-# feed.get_packaged_data(ourdata)
-
 @app.route('/')
 def home():
   return render_template('home.html')
