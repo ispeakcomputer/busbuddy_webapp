@@ -11,32 +11,33 @@ class Tripsdata:
 
     def pull(self):
         '''Pull rtd-denver GTFS data and the assign bindings using gtfs_realtime_pb2'''
-        while True:
-            tufeed = gtfs_realtime_pb2.FeedMessage()
-            try:
-                print "pulling data"
-                response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
-                #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
-                tufeed.ParseFromString(response.content)
-                print "Parsing Data"
-                return tufeed
 
-            except requests.exceptions.Timeout:
-                print "RTD Denver Data Timeout Trying Again In 60 Seconds"
-                time.sleep(60)
+        tufeed = gtfs_realtime_pb2.FeedMessage()
+        print "pulling data"
+        try:
+            response = requests.get('http://www.rtd-denver.com/google_sync/TripUpdate.pb', auth=(username, passwords))
 
-            except requests.exceptions.TooManyRedirects:
-                print "Too Many Redirects Trying Again In 60 Seconds"
-                time.sleep(60)
+        except requests.exceptions.Timeout:
+            print "RTD Denver Data Timeout Trying Again In 60 Seconds"
+            time.sleep(60)
+
+        except requests.exceptions.TooManyRedirects:
+            print "Too Many Redirects Trying Again In 60 Seconds"
+            time.sleep(60)
 
 
-            except requests.exceptions.RequestException as e:
-                print str(e) + " Trying again in 60 Seconds"
-                time.sleep(60)
+        except requests.exceptions.RequestException as e:
+            print str(e) + " Trying again in 60 Seconds"
+            time.sleep(60)
 
-            except requests.exceptions.HTTPError as err:
-                print err
-                time.sleep(60)
+        except requests.exceptions.HTTPError as err:
+            print err
+            time.sleep(60)
+
+        #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
+        tufeed.ParseFromString(response.content)
+        print "Parsing Data"
+        return tufeed
 
 
             # if tufeed == False:
@@ -69,6 +70,6 @@ class Feedstore:
 
 feed = Feedstore()
 
-if __name__ == '__main__':
-    ourdata = data.pull()
-    feed.get_packaged_data(ourdata)
+# if __name__ == '__main__':
+    # ourdata = data.pull()
+    # feed.get_packaged_data(ourdata)

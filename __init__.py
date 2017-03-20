@@ -45,12 +45,9 @@ def reload_database():
         print "The task ran I thinks"
         time.sleep(60)
 
-
 reload_database.delay()
 
 if __name__ == '__main__':
     print "Running if __name__ == '__main__ ' in __init__"
-
-    # pull data to store in our database.
 
     app.run(debug=True)
