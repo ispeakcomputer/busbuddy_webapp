@@ -2,9 +2,9 @@
 
 
 echo Killing Celery Workers
-sudo pkill -f celery
+sudo kill -9 `ps -ef | grep celery | grep -v grep | awk '{print $2}'`
 sleep 3
-echo Checking if any celerys are still running that need to be killed
+echo Checking if any celerys are still 
 echo
 ps -aux|grep celery
 
@@ -12,7 +12,7 @@ ps -aux|grep celery
 echo Killing RabbitMQ
 sudo kill -9 `ps -ef | grep rabbitmq | grep -v grep | awk '{print $2}'`
 sleep 3
-echo Checking to see if RabbitMQ is still running. If so then kill the processes manualy
+echo Checking to see if RabbitMQ is still running.
 echo
 
 
@@ -20,7 +20,7 @@ ps -aux|grep rabbitmq
 
 
 echo Killing Gunicorn
-pkill -f gunicorn
+sudo kill -9 `ps -ef | grep gunicorn | grep -v grep | awk '{print $2}'`
 sleep 3
 ps -aux|grep gunicorn
 
