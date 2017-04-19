@@ -43,7 +43,7 @@ def reload_database():
         ourdata = data.pull()
         feed.get_packaged_data(ourdata)
         print "The task ran I thinks"
-        time.sleep(60)
+        time.sleep(360)
 
 reload_database.delay()
 
