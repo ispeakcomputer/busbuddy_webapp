@@ -10,7 +10,7 @@ ps -aux|grep celery
 
 
 echo Killing RabbitMQ
-sudo pkill -f rabbitmq
+sudo kill -9 `ps -ef | grep rabbitmq | grep -v grep | awk '{print $2}'`
 sleep 3
 echo Checking to see if RabbitMQ is still running. If so then kill the processes manualy
 echo
