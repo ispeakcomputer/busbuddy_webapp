@@ -15,4 +15,4 @@ echo Lets now start Gunicorn
  sleep 7
 sudo gunicorn __init__:app
 
-echo PLEASE OPEN BROWSER TO 127.0.0.1:8000
+echo PLEASE OPEN BROWSER TO 127.0.0.1:8000 AND WAIT TILL DATABASE IS FULLY STOCKED
