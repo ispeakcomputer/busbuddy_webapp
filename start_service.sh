@@ -8,7 +8,7 @@ sudo service rabbitmq-server restart
 #Run Celery
 echo lets start Celery now
 sleep 5
-sudo celery -A __init__.celery -l info
+sudo celery -A __init__.celery worker --loglevel=info
 
 #Run Gunicorn
 echo Lets now start Gunicorn
