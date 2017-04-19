@@ -19,20 +19,20 @@ class Tripsdata:
 
         except requests.exceptions.Timeout:
             print "RTD Denver Data Timeout Trying Again In 60 Seconds"
-            time.sleep(60)
+            # time.sleep(60)
 
         except requests.exceptions.TooManyRedirects:
             print "Too Many Redirects Trying Again In 60 Seconds"
-            time.sleep(60)
+            # time.sleep(60)
 
 
         except requests.exceptions.RequestException as e:
             print str(e) + " Trying again in 60 Seconds"
-            time.sleep(60)
+            # time.sleep(60)
 
         except requests.exceptions.HTTPError as err:
             print err
-            time.sleep(60)
+            # time.sleep(60)
 
         #Use response.content to load the binary into the feed object using gtfs_realtime_pb2 here.
         tufeed.ParseFromString(response.content)
