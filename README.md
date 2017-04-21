@@ -10,10 +10,11 @@ I wanted a more up to date bus arrival times using RTD's predictive data.
 
 ### Sqlite is enabled in models.py to allow testing of the app. Uncomment the Postgres SQLAlchemy ORM connection strings when ready for a production enviroment.
 
-1. Download the content of the repo
-2. Install Virtualenv
-3. Activate Virtualenv to install enviroment in. See Virtualenv Docs for information
-4. Run "$ pip install -r requirements.txt" to install everything needed to run the app
-5. Make sure RabbitMQ is running "$sudo service rabbitmq-server restart"
-6. Start Celery workers. I use "$celery -A __init__.celery worker -l info". I would suggest you find which way workers best suit your needs
-7. Start Gunicorn with "$ gunicorn __init__:app"
+
+1. Navigate into the busbuddy_webapp directory
+2. Install pip and virtualenv with "sudo apt-get install pip virtualenv"
+3. Set up your virtualenv directory and activate it. See virtualenv documentation. 
+4. run "pip install -r requirements.txt" to install the needed packages.
+5. run "chmod +x start_service.sh stop_service to run start and stop script locally 
+6. run ./start_service.sh to start app. Wait for the app to come up and load database. 
+7. run ./stop_service.sh to stop the messaging queue, celery and gunicorn completely.
