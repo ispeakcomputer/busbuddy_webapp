@@ -1,2 +1,3 @@
 *.pyc
 mylogins.py
+venv/
