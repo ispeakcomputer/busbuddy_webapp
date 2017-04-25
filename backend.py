@@ -53,12 +53,13 @@ data = Tripsdata()
 class Feedstore:
     def get_packaged_data(self, tufeed):
         '''Parse through RTD data and start loading it into database'''
+        # model_thing.renew()
         model_thing.renew()
 
         for entity in tufeed.entity:
             for mystop in entity.trip_update.stop_time_update:
                 bus = entity.trip_update.trip.route_id
-                print "What we are commiting to the database"
+                print "Adding to Table to be commited later"
                 print bus
                 stop = mystop.stop_id
                 print stop
@@ -66,6 +67,9 @@ class Feedstore:
                 print times
 
                 model_thing.add(bus, stop, times)
+
+        print "We will now make a big commit with all our data. This may take awhile"
+
         model_thing.commit()
 
 feed = Feedstore()
