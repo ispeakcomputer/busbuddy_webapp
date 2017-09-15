@@ -48,6 +48,5 @@ def reload_database():
 reload_database.delay()
 
 if __name__ == '__main__':
-    print "Running if __name__ == '__main__ ' in __init__"
 
     app.run(debug=True)
