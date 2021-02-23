@@ -1,2 +1,3 @@
-username = 'RTDgtfsRT'
-passwords = 'realT!m3Feed'
+username = '<THIS IS USERNAME>'
+passwords = '<THIS IS PASSWORD>'
+Update mylogins.py
