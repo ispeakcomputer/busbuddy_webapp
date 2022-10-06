@@ -1,6 +1,6 @@
 # Bus Buddy Flask App - Arrive On Time
 
-![Image](https://github.com/ispeakcomputer/busbuddy_webapp/images/busbuddy_image.png)
+![Image](https://github.com/ispeakcomputer/busbuddy_webapp/blob/master/images/busbuddy_image.png)
 
 This application pulls the real time data from Denvers RTD transit system. Website users request bus times from the database using the interface in order to find their stops next arrival times. 
 
