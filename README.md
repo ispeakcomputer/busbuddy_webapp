@@ -1,17 +1,18 @@
 # Bus Buddy Flask App - Arrive On Time
 
-![Screenshot](/images/busbuddy_image.png)
+![Image](https://github.com/ispeakcomputer/busbuddy_webapp/images/busbuddy_image.png)
 
-This application pulls the real time data from Denvers RTD transit system.Website users request bus times from the database using the interface in order to find their stops next arrival times. The application finds the arrival times of all the buses on the road and stores them in the database. Data pulling, parsing, and the loading of the database is handled in the background with Celery task manager. RabbitMQ is used for messaging. Gunicorn serving our webpage.
+This application pulls the real time data from Denvers RTD transit system. Website users request bus times from the database using the interface in order to find their stops next arrival times. 
+
+This app is different because you can approch in the stop number and get exact times for that stop.
+
+The application finds the arrival times of all the buses for the day and stores them in the database. Data pulling, parsing, and the loading of the database is handled in the background with Celery task manager. RabbitMQ is used for messaging. Gunicorn serving our webpage.
 
 # Motivation
 
-I wanted a more up to date bus arrival times using RTD's predictive data.
+I wanted a more up to date bus arrival times using RTD's predictive data because the existing app was lacking.
 
 # Installation
-
-### Sqlite is enabled in models.py to allow testing of the app. Uncomment the Postgres SQLAlchemy ORM connection strings when ready for a production enviroment.
-
 
 1. Navigate into the busbuddy_webapp directory
 2. Install pip and virtualenv with "sudo apt-get install pip virtualenv"
