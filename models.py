@@ -7,6 +7,8 @@ from sqlalchemy.orm import sessionmaker
 import psycopg2
 from mylogins import endpoint
 
+### Sqlite is enabled in models.py to allow testing of the app. Uncomment the Postgres SQLAlchemy ORM connection strings when ready for a production enviroment.
+
 app = Flask(__name__)
 # This will work for our production postgres db
 # app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://ryan:database666@busdatabase.cjjoqnd9i3es.us-west-2.rds.amazonaws.com:5432/busdb'
