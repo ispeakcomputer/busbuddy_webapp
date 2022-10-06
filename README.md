@@ -1,6 +1,6 @@
 # Bus Buddy Flask App - Arrive On Time
 
-i![Screenshot](/images/busbuddy_image.png)
+![Screenshot](/images/busbuddy_image.png)
 
 This application pulls the real time data from Denvers RTD transit system.Website users request bus times from the database using the interface in order to find their stops next arrival times. The application finds the arrival times of all the buses on the road and stores them in the database. Data pulling, parsing, and the loading of the database is handled in the background with Celery task manager. RabbitMQ is used for messaging. Gunicorn serving our webpage.
 
