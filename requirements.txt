@@ -1,7 +1,7 @@
 amqp==2.1.4
 bandwidth-sdk==1.0.9
 billiard==3.5.0.2
-celery==4.0.2
+celery==5.2.2
 cffi==0.8.6
 chardet==2.3.0
 click==6.6
