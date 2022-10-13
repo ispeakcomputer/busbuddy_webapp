@@ -24,11 +24,8 @@ def post():
     thelist = data.pull()
     listoftimes = arrival.list(thelist, bus, stop)
     list = convertedtimes.converter(listoftimes)
-    # print type(myconvertedtimes)
 
     return render_template('arrivals.html', list=list, bus=bus, stop=stop)
-
-  # return render_template('home.html')
 
 if __name__ == '__main__':
   app.run(debug=True)

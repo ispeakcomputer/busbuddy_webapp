@@ -7,13 +7,11 @@ from sqlalchemy.orm import sessionmaker
 import psycopg2
 from mylogins import endpoint
 
-### Sqlite is enabled in models.py to allow testing of the app. Uncomment the Postgres SQLAlchemy ORM connection strings when ready for a production enviroment.
-
 app = Flask(__name__)
-# This will work for our production postgres db
-# app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://ryan:database666@busdatabase.cjjoqnd9i3es.us-west-2.rds.amazonaws.com:5432/busdb'
 
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# This will work for our production postgres db
+# app.config ['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://ryan:database666@busdatabase.cjjoqnd9i3es.us-west-2.rds.amazonaws.com:5432/busdb'
 
 db = SQLAlchemy(app)
 
@@ -48,13 +46,6 @@ class Database_actions():
             print "This is our test", i.times
             list.append(i.times)
 
-
-        # this checks for length because if its off it will fail
-        # for i in range(5):
-        #     print "print our .get i loop var", i
-        #     list.append(buses[i].times)
-        #     print buses[i].times
-
         return list
 
     def add(self, load_bus, load_stop, load_times):
@@ -72,8 +63,6 @@ class Database_actions():
         db.session.add(new_entry)
 
     def renew(self):
-        # db.drop_all()
-        # db.create_all()
         Mymodel.query.delete()
 
         print "Dropped and Created Table.....done"
