@@ -14,15 +14,12 @@ import time
 class Nextarrival:
     def mintime(self, time):
         self.times = []
-        ''' We simply find the lowest POSIX time and this will be our next bus'''
         nexttime = min(time)
         return nexttime
 ournextarrival = Nextarrival()
 
 class Converttime:
     def converter(self, ournexttime):
-        '''Here we convert the POSIX time from our GTFS feed to a date and time that we can read
-        We try and detect a list as well as a single var so we can use many different inputs'''
         self.times = ournexttime
         convertedlist = []
         if type(self.times) is list:
@@ -39,7 +36,6 @@ class Checkinput:
     def __init__(self):
          self.digits = 6
     def checker(self, bus, stop):
-        ''' Check to make sure input isn't over 6 digits '''
         if len(bus) > self.digits:
             return False
         else:
